@@ -1,4 +1,5 @@
 var http=require('http');
+var fs=require('fs');
 
 var server=http.createServer();
 
@@ -15,9 +16,14 @@ server.on('connection', function(socket){
 server.on('request', function(req, res){
     console.log('클라이언트 요청이 들어왔습니다.') ;
     //console.dir(req);
-    res.writeHead(200, {"Content-Type":"text/html;charset=utf-8"});
-    res.write('<h1>웹서버로부터 받은 응답</h1>');
-    res.end();
+    
+    var filename='./images/home.png';
+    fs.readFile(filename, function(err, data){
+       res.writeHead(200, {"Content-Type":"image/png"}) ;
+       res.write(data);
+       res.end();
+    });
+
 });
 
 
