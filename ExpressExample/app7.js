@@ -20,9 +20,9 @@ app.use(function(req, res, next){
     
     var userAgent =req.header('User-Agent');
     //post 혹은 get 방식
-    var paramName=req.body.name || req.query.name;
+    var paramId=req.body.id || req.query.id;
     
-    res.send('<h3>서버에서 응답 : User-Agent -> '+userAgent+'</h3> <h3>Param Name-> '+paramName+'</h3>');         
+    res.send('<h3>서버에서 응답 : User-Agent -> '+userAgent+'</h3> <h3>Param ID-> '+paramId+'</h3>');         
     
 });
 
